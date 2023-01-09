@@ -7,24 +7,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("user")
 public class UsersController {
-	
+
 	@PostMapping("/create")
 	public void createUser(
-			
-			String UserName,
-			int UserTypeId,
-			int CallerUserId) {
-		
-		
+
+			String UserName, int UserTypeId, int CallerUserId) {
+
 	}
+
 	@PostMapping("/modify/rename")
 	public void renameUser(
-			
-			int UserId,
-			String NewName,
-			int CallerUserId) {
-		
-		
+
+			int UserId, String NewName, int CallerUserId) {
+
 	}
 
 }
