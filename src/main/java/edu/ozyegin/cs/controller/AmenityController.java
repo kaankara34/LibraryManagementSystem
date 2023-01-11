@@ -1,13 +1,22 @@
 package edu.ozyegin.cs.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.ozyegin.cs.entity.Amenity;
+import edu.ozyegin.cs.service.AmenityService;
+
 @RestController
 @RequestMapping("amenity")
 public class AmenityController {
+	
+	@Autowired
+	AmenityService service;
 	
 	
 	@PostMapping("/create")
@@ -26,8 +35,9 @@ public class AmenityController {
 		
 	}
 	@GetMapping("/get_all")
-	public void getAllAmenity() {
+	public List<Amenity> getAllAmenity() {
 		
+		return service.getAllAmenity();
 		
 	}
 

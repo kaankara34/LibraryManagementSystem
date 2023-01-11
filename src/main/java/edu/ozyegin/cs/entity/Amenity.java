@@ -10,8 +10,16 @@ import lombok.Data;
 @Entity(name = "amenity")
 public class Amenity {
 
+
 	private int amenityID;
 	@Id
 	private String amenityName;
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "amenityId: " + amenityID + "\n"+"amenityName: " + amenityName;
+	}
+	
+	
 
 }
