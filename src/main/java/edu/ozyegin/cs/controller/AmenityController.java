@@ -14,31 +14,30 @@ import edu.ozyegin.cs.service.AmenityService;
 @RestController
 @RequestMapping("amenity")
 public class AmenityController {
-	
+
 	@Autowired
 	AmenityService service;
-	
-	
+
 	@PostMapping("/create")
 	public void createAmenity(String AmenityName, int CallerUserId) {
-		
-		
+
 	}
+
 	@PostMapping("/modify")
-	public void modifyAmenity(String AmenityName,int AmenityId, int CallerUserId) {
-		
-		
+	public void modifyAmenity(String AmenityName, int AmenityId, int CallerUserId) {
+
 	}
+
 	@PostMapping("/delete")
-	public void deleteAmenity(String AmenityName,int AmenityId, int CallerUserId) {
-		
-		
+	public void deleteAmenity(String AmenityName, int AmenityId, int CallerUserId) {
+
 	}
+
 	@GetMapping("/get_all")
 	public List<Amenity> getAllAmenity() {
-		
+
 		return service.getAllAmenity();
-		
+
 	}
 
 }

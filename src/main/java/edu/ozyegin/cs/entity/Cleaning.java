@@ -2,9 +2,10 @@ package edu.ozyegin.cs.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.Data;
 
 @Entity
@@ -14,9 +15,8 @@ public class Cleaning {
 
 	@Id
 	private int userID;
-	@Id
 	private int roomID;
-	@Id
+	
 	private Date cleaning_date;
 
 	/*

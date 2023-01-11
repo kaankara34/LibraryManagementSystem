@@ -3,13 +3,13 @@ package edu.ozyegin.cs.repository;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import org.springframework.stereotype.Repository;
 
 import edu.ozyegin.cs.entity.Amenity;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
 
 @Repository
 public class AmenityRepository {
@@ -21,6 +21,5 @@ public class AmenityRepository {
 		System.out.println(Arrays.toString(query.getResultList().toArray()));
 		List<Amenity> resultList = query.getResultList();
 		return resultList;
-	}	
-
+	}
 }

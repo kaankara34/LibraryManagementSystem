@@ -1,8 +1,9 @@
 package edu.ozyegin.cs.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import lombok.Data;
 
 @Data
@@ -10,16 +11,14 @@ import lombok.Data;
 @Entity(name = "amenity")
 public class Amenity {
 
-
 	private int amenityID;
 	@Id
 	private String amenityName;
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "amenityId: " + amenityID + "\n"+"amenityName: " + amenityName;
+		return "amenityId: " + amenityID + "\n" + "amenityName: " + amenityName;
 	}
-	
-	
 
 }
