@@ -1,56 +1,169 @@
 package edu.ozyegin.cs.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+import java.util.Scanner;
 
-@RestController()
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import edu.ozyegin.cs.entity.Rooms;
+import edu.ozyegin.cs.service.RoomService;
+
+
+@RestController
 @RequestMapping("room")
 public class RoomController {
 
-	@PostMapping("/create")
-	public void createRoom(
+	static Scanner scanner = new Scanner(System.in);
+	static Scanner scanner2 = new Scanner(System.in);
+	static Scanner scanner3 = new Scanner(System.in);
 
-			String RoomName, int RoomTypeId, int CallerUserId) {
+
+	@Autowired
+	RoomService service;
+
+	@RequestMapping("/create")
+	public boolean createRoom() {
+		System.out.println("room name");
+		String name = scanner.nextLine();
+
+		System.out.println("roomtypeid ");
+		int no = scanner2.nextInt();
+
+		System.out.println("callerid ");
+		int callerId = scanner3.nextInt();
+
+
+		String value = service.check_role(callerId);
+
+		if(value.equals("Administrator")) {
+			return service.createRoom(name,no);
+		}else {
+			return false;
+		}
 
 	}
 
-	@PostMapping("/modify/rename")
-	public void renameRoom(int RoomId, String NewName, int CallerUserId) {
+	@RequestMapping("/modify/rename")
+	public boolean renameRoom() {
+		System.out.println("room name");
+		String name = scanner.nextLine();
 
+		System.out.println("room type id");
+		int id = scanner2.nextInt();
+
+		System.out.println("Write UserID");
+		int callerId = scanner3.nextInt();
+
+
+		String value = service.check_role(callerId);
+
+		if(value.equals("Administrator") || value.equals("Receptionist")) {
+			return service.renameRoom(name,id);
+		}else {
+			return false;
+		}
 	}
 
-	@PostMapping("/modify/change_type")
-	public void changeRoomType(int RoomId, int RoomTypeId, int CallerUserId) {
+	@RequestMapping("/modify/change_type")
+	public boolean changeRoomType() {
+		System.out.println("room id");
+		int id = scanner.nextInt();
 
+		System.out.println("room type id");
+		int typeid = scanner2.nextInt();
+
+		System.out.println("caller id");
+		int callerId = scanner3.nextInt();
+
+		String value = service.check_role(callerId);
+
+		if(value.equals("Administrator") || value.equals("Receptionist")) {
+			return service.changeRoomType(id,typeid);
+		}else {
+			return false;
+		}
 	}
 
-	@PostMapping("/modify/delete")
-	public void deleteRoom(
+	@RequestMapping("/modify/delete")
+	public boolean deleteRoom() {
+		System.out.println("RoomId");
+		int id = scanner.nextInt();
 
-			int RoomId, int CallerUSerId) {
+		System.out.println("Write UserID");
+		int callerId = scanner2.nextInt();
 
+		String value = service.check_role(callerId);
+
+		if(value.equals("Administrator")) {
+			return service.deleteRoom(id);
+		}else {
+			return false;
+		}
 	}
 
-	@PostMapping("/amenity/add")
-	public void addAmenityInRoom(int RoomId, int AmenityId, int CallerUserId) {
+	@RequestMapping("/amenity/add")
+	public boolean addAmenityInRoom() {
+		System.out.println("roomid");
+		int roomid = scanner.nextInt();
 
+		System.out.println("amenity");
+		int amenityId = scanner2.nextInt();
+
+		System.out.println("Write UserID");
+		int callerId = scanner3.nextInt();
+
+		String value = service.check_role(callerId);
+		if(value.equals("Administrator") || value.equals("Receptionist")) {
+			return service.addAmenityInRoom(roomid,amenityId);
+		}else {
+			return false;
+		}
 	}
 
-	@PostMapping("/amenity/remove")
-	public void removeAmenityFromRoom(int RoomId, int AmenityId, int CallerUserId) {
+	@RequestMapping("/amenity/remove")
+	public boolean removeAmenityFromRoom() {
+		System.out.println("roomid");
+		int roomid = scanner.nextInt();
 
+		System.out.println("amenity");
+		int amenityId = scanner2.nextInt();
+
+		System.out.println("Write UserID");
+		int callerId = scanner3.nextInt();
+
+		String value = service.check_role(callerId);
+
+		if(value.equals("Administrator") || value.equals("Receptionist")) {
+			return service.removeAmenityFromRoom(roomid,amenityId);
+		}else {
+			return false;
+		}
 	}
 
 	@GetMapping("/get_all")
-	public void getAllRooms() {
-
+	public List<Rooms> getAllRooms() {
+		return service.getAllRooms();
 	}
 
-	@PostMapping("/get_available_for_date")
-	public void removeAmenityFromRoom(String StartDate, String EndDate) {
+	@RequestMapping("/get_available_for_date")
+	public Object get_available_for_date() {
+		System.out.println("date1");
+		String d1 = scanner.nextLine();
 
+		System.out.println("date2");
+		String d2 = scanner2.nextLine();
+
+		System.out.println("Write UserID");
+		int callerId = scanner3.nextInt();
+
+		String value = service.check_role(callerId);
+		if (value.equals("Administrator") || value.equals("Receptionist") || value.equals("Guest")) {
+			return service.get_available_for_date(d1, d2);
+		}else{
+			return "You dont have access";
+		}
 	}
 
 }

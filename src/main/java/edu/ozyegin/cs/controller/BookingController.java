@@ -11,40 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookingController {
 
 	@PostMapping("/make_booking")
-	public void makeBooking(
-
-			int UserId, Date DayStart, Date DayEnd, double Price, int CallerUserId) {
+	public void makeBooking(int UserId, Date DayStart, Date DayEnd, double Price, int CallerUserId) {
 
 	}
 
 	@PostMapping("/cancel_booking")
-	public void cancelBooking(
-
-			int BookingId, int CallerUserId) {
+	public void cancelBooking(int BookingId, int CallerUserId) {
 
 	}
 
 	@PostMapping("/modify/change_date")
-	public void changeBookingDate(
-
-			int BookingId, Date DayStart, Date DayEnd, int CallerUserId) {
+	public void changeBookingDate(int BookingId, Date DayStart, Date DayEnd, int CallerUserId) {
 
 	}
 
 	@PostMapping("/modify/change_price")
-	public void changePrice(
-
-			int BookingId, double NewPrice, int CallerUserId) {
+	public void changePrice(int BookingId, double NewPrice, int CallerUserId) {
 
 	}
 
 	@PostMapping("/get")
-	public void getInfoOfBooking(
-
-			int BookingId,
-
-			int CallerUserId) {
-
+	public void getInfoOfBooking(int BookingId,int CallerUserId) {
 	}
 
 	@PostMapping("/get_all")

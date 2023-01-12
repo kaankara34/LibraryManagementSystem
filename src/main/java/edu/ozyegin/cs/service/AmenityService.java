@@ -15,8 +15,19 @@ public class AmenityService {
 	AmenityRepository repository;
 
 	public List<Amenity> getAllAmenity() {
-		return repository.findAll();
-
+		return repository.getAllAmenity();
+	}
+	public  String check_role(int callerId){
+		return repository.check_role(callerId);
+	}
+	public boolean createAmenity(String AmenityName){
+		return repository.createAmentiy(AmenityName);
+	}
+	public boolean modifyAmenity(String AmenityName, int AmenityID){
+		return repository.modifyAmenity(AmenityName,AmenityID);
 	}
 
+	public boolean deleteAmenity(int amenityId) {
+		return repository.deleteAmenity(amenityId);
+	}
 }
