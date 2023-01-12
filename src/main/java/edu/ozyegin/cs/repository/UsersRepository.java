@@ -30,12 +30,14 @@ public class UsersRepository {
         return value;
     }
 
-
+    @Transactional
+    @Modifying
     public boolean createUser(String userName, int UserTypeId) {
         entityManager.createNativeQuery("INSERT INTO users (user_name, userTypeID) VALUES ("+userName+","+ UserTypeId+");").executeUpdate();
         return true;
     }
-
+    @Transactional
+    @Modifying
     public boolean renameUser(int userId, String newName) {
         entityManager.createNativeQuery("UPDATE users SET user_name ="+newName+"WHERE userID ="+userId+";").executeUpdate();
         return true;

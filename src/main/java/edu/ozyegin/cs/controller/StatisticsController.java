@@ -19,7 +19,7 @@ public class StatisticsController {
 	@Autowired
 	StatisticsService service;
 
-	@PostMapping("/room/bookings")
+	@RequestMapping("/room/bookings")
 	public int getNoOfBookings() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -36,7 +36,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/room/bookings/conversion_rate")
+	@RequestMapping("/room/bookings/conversion_rate")
 	public double getConversionRate() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -53,7 +53,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/room/average_price")
+	@RequestMapping("/room/average_price")
 	public float getAveragePrice() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -71,7 +71,7 @@ public class StatisticsController {
 
 	}
 
-	@PostMapping("/room/max_user_bookings")
+	@RequestMapping("/room/max_user_bookings")
 	public int getMaxUserBookings() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -88,7 +88,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/room/max_user_duration")
+	@RequestMapping("/room/max_user_duration")
 	public int getMaxUserDuration() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -106,7 +106,7 @@ public class StatisticsController {
 
 	}
 
-	@PostMapping("/room/amenity_count")
+	@RequestMapping("/room/amenity_count")
 	public List<Amenity> getAmenityCount() {
 		System.out.println("Write RoomId");
 		int RoomId = scanner.nextInt();
@@ -126,7 +126,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/housekeeping/count_clean")
+	@RequestMapping("/housekeeping/count_clean")
 	public int getCleanedCount(int CallerUserId) {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -140,7 +140,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/housekeeping/max_unique")
+	@RequestMapping("/housekeeping/max_unique")
 	public int getMostCleaningHouseKeeper(int CallerUserId) {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -155,7 +155,7 @@ public class StatisticsController {
 
 	}
 
-	@PostMapping("/housekeeping/max_unfinished")
+	@RequestMapping("/housekeeping/max_unfinished")
 	public int getMostPendingHouseKeeper(int CallerUserId) {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -170,7 +170,7 @@ public class StatisticsController {
 
 	}
 
-	@PostMapping("/housekeeping/with_most_housekeepers")
+	@RequestMapping("/housekeeping/with_most_housekeepers")
 	public int[] getRoomWithMostHouseKeepers(int CallerUserId) {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -184,7 +184,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/bookings/price/amenity")
+	@RequestMapping("/bookings/price/amenity")
 	public double getAvePriceOfRoomsWithAtLeastKAmenities() {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -201,7 +201,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/bookings/max_room/price")
+	@RequestMapping("/bookings/max_room/price")
 	public double getAvePriceOfRoomsWithHighestBookingWithAtLeastTDays() {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -218,7 +218,7 @@ public class StatisticsController {
 		}
 	}
 
-	@PostMapping("/amenity/max")
+	@RequestMapping("/amenity/max")
 	public int[] getIdOfMostComAmenities() {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
@@ -233,7 +233,7 @@ public class StatisticsController {
 
 	}
 
-	@PostMapping("/amenity/difference")
+	@RequestMapping("/amenity/difference")
 	public double getAmenitiyDifference() {
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();

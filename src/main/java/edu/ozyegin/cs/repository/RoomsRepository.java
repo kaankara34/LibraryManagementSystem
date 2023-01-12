@@ -67,6 +67,7 @@ public class RoomsRepository {
         List<Rooms> resultlist = query.getResultList();
         return resultlist;
     }
+
     public List<Rooms> get_available_for_date(String d1, String d2) {
         Query query = entityManager.createNativeQuery("SELECT room.* FROM rooms as room\n" +
                 "LEFT JOIN booking ON room.roomID = booking.roomID \n" +

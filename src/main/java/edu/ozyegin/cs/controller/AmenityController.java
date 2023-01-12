@@ -62,7 +62,7 @@ public class AmenityController {
 		int id = scanner.nextInt();
 		System.out.println("Write UserID");
 		int callerId = scanner2.nextInt();
-		System.out.println(callerId);
+
 		String value = service.check_role(callerId);
 
 		if(value.equals("Administrator")) {
